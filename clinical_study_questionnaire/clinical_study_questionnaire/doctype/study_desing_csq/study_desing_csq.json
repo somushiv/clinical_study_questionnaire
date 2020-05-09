@@ -5,6 +5,7 @@
  "engine": "InnoDB",
  "field_order": [
   "title",
+  "strudy_program",
   "program_name",
   "stage"
  ],
@@ -15,20 +16,26 @@
    "label": "Title"
   },
   {
+   "fetch_from": "strudy_program.program_name",
    "fieldname": "program_name",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "label": "Program Name",
-   "options": "Programs CSQ"
+   "fieldtype": "Read Only",
+   "label": "Program Name"
   },
   {
    "fieldname": "stage",
    "fieldtype": "Select",
    "label": "Stage",
    "options": "After Registration\n1 Week\n1 Month"
+  },
+  {
+   "fieldname": "strudy_program",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Study Program",
+   "options": "Programs CSQ"
   }
  ],
- "modified": "2020-04-26 23:41:23.839916",
+ "modified": "2020-05-09 10:34:29.205961",
  "modified_by": "Administrator",
  "module": "Clinical Study Questionnaire",
  "name": "Study Desing CSQ",

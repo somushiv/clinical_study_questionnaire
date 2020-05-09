@@ -5,6 +5,14 @@
  "engine": "InnoDB",
  "field_order": [
   "question",
+  "section_name",
+  "section_title",
+  "sb_01",
+  "data_4",
+  "upload_image",
+  "sec_01",
+  "has_video",
+  "upload_video",
   "answers_section",
   "answers"
  ],
@@ -25,9 +33,55 @@
    "fieldtype": "Table",
    "label": "Answers",
    "options": "Answers CSQ"
+  },
+  {
+   "default": "0",
+   "fieldname": "data_4",
+   "fieldtype": "Check",
+   "label": "Has Image?"
+  },
+  {
+   "fieldname": "section_name",
+   "fieldtype": "Link",
+   "label": "Section Name",
+   "options": "Structure CSQ"
+  },
+  {
+   "fetch_from": "section_name.title",
+   "fieldname": "section_title",
+   "fieldtype": "Read Only",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Section Title"
+  },
+  {
+   "fieldname": "upload_image",
+   "fieldtype": "Attach Image",
+   "label": "Upload Image"
+  },
+  {
+   "fieldname": "sec_01",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "has_video",
+   "fieldtype": "Check",
+   "label": "Has Video?"
+  },
+  {
+   "fieldname": "upload_video",
+   "fieldtype": "Attach",
+   "label": "Upload Video"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "sb_01",
+   "fieldtype": "Section Break",
+   "label": "Media"
   }
  ],
- "modified": "2020-05-01 17:53:17.840670",
+ "modified": "2020-05-09 11:54:00.967078",
  "modified_by": "Administrator",
  "module": "Clinical Study Questionnaire",
  "name": "Question CSQ",
