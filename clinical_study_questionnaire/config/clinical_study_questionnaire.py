@@ -24,6 +24,11 @@ def get_data():
 				},
 				{
 					"type": "doctype",
+					"name": "Interviewer CSQ",
+					"description": _("Interviewer"),
+				},
+				{
+					"type": "doctype",
 					"name": "Participant CSQ",
 					"description": _("Participant"),
 				},				 
