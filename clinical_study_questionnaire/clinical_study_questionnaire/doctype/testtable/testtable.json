@@ -5,17 +5,23 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "description"
+  "description",
+  "test_title"
  ],
  "fields": [
   {
    "fieldname": "description",
    "fieldtype": "HTML Editor",
    "label": "Description"
+  },
+  {
+   "fieldname": "test_title",
+   "fieldtype": "Data",
+   "label": "Test Title"
   }
  ],
  "istable": 1,
- "modified": "2020-04-28 00:49:09.956753",
+ "modified": "2020-05-09 14:45:46.402101",
  "modified_by": "Administrator",
  "module": "Clinical Study Questionnaire",
  "name": "TestTable",
