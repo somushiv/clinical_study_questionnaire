@@ -1,0 +1,29 @@
+{
+ "autoname": "D.####",
+ "creation": "2020-04-28 00:29:31.688281",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "description"
+ ],
+ "fields": [
+  {
+   "fieldname": "description",
+   "fieldtype": "HTML Editor",
+   "label": "Description"
+  }
+ ],
+ "istable": 1,
+ "modified": "2020-04-28 00:49:09.956753",
+ "modified_by": "Administrator",
+ "module": "Clinical Study Questionnaire",
+ "name": "TestTable",
+ "name_case": "UPPER CASE",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

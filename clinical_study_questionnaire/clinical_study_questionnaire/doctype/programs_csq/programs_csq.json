@@ -1,0 +1,119 @@
+{
+ "autoname": "CSQ.####",
+ "creation": "2020-04-26 22:47:37.109336",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "program_name",
+  "status",
+  "col_01",
+  "start_date",
+  "end_date",
+  "sb_02",
+  "about_program",
+  "sb_01",
+  "user_concent"
+ ],
+ "fields": [
+  {
+   "columns": 11,
+   "fieldname": "program_name",
+   "fieldtype": "Data",
+   "label": "Program Name"
+  },
+  {
+   "fieldname": "start_date",
+   "fieldtype": "Date",
+   "label": "Start Date"
+  },
+  {
+   "fieldname": "end_date",
+   "fieldtype": "Date",
+   "label": "End Date"
+  },
+  {
+   "columns": 4,
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Not Started\nOn-Going\nCompleted"
+  },
+  {
+   "fieldname": "about_program",
+   "fieldtype": "Text Editor",
+   "label": "About Program"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "sb_01",
+   "fieldtype": "Section Break",
+   "label": "Concent Text"
+  },
+  {
+   "fieldname": "user_concent",
+   "fieldtype": "Text Editor",
+   "label": "User Concent"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "sb_02",
+   "fieldtype": "Section Break",
+   "label": "Program Brief"
+  },
+  {
+   "fieldname": "col_01",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "modified": "2020-05-08 23:54:35.393284",
+ "modified_by": "Administrator",
+ "module": "Clinical Study Questionnaire",
+ "name": "Programs CSQ",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "SJRI System Admin",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "SJRI Data Admin",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "search_fields": "program_name",
+ "show_name_in_global_search": 1,
+ "sort_field": "modified",
+ "sort_order": "ASC",
+ "title_field": "program_name",
+ "track_changes": 1
+}

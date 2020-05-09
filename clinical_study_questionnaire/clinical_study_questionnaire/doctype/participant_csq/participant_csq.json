@@ -1,0 +1,161 @@
+{
+ "autoname": "NS.#####",
+ "creation": "2020-04-27 18:35:45.238340",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "participant_name",
+  "type",
+  "language",
+  "age",
+  "col_1",
+  "gendar",
+  "religion",
+  "marital_status",
+  "medical_school_year",
+  "col_2",
+  "assinged_program",
+  "program_name",
+  "col_3",
+  "registered_by",
+  "registrant__name",
+  "row_1",
+  "parent_occupation"
+ ],
+ "fields": [
+  {
+   "fieldname": "type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Type",
+   "options": "Medical Student"
+  },
+  {
+   "fieldname": "language",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Language",
+   "options": "English"
+  },
+  {
+   "fieldname": "age",
+   "fieldtype": "Int",
+   "label": "Age"
+  },
+  {
+   "fieldname": "gendar",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Gendar",
+   "options": "Male\nFemale\nTransgender\nDecline to answer"
+  },
+  {
+   "fieldname": "religion",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Religion",
+   "options": "Hindu\nMuslim\nSikh\nBuddhist\nChristian\nJain\nJewish\nParis/ Zoroastrian\nNone\nDeclined to answer"
+  },
+  {
+   "fieldname": "marital_status",
+   "fieldtype": "Select",
+   "label": "Marital Status",
+   "options": "Currently Married\nNever Married/Single\nDivorced\nSeparated\nWidow/Widower\nDeserted\nDeclined to answer"
+  },
+  {
+   "fieldname": "parent_occupation",
+   "fieldtype": "Long Text",
+   "label": "Parent Occupation"
+  },
+  {
+   "fieldname": "medical_school_year",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Medical School Year",
+   "options": "First Year MBBS\nSecond Year MBBS\nThird Year MBBS\nFourth Year MBBS\nInternship\nDeclined to answer"
+  },
+  {
+   "fetch_from": "assinged_program.program_name",
+   "fieldname": "program_name",
+   "fieldtype": "Read Only",
+   "label": "Program Name"
+  },
+  {
+   "fieldname": "registered_by",
+   "fieldtype": "Link",
+   "label": "Registered By",
+   "options": "Interviewer CSQ"
+  },
+  {
+   "fetch_from": "registered_by.interviewer_name",
+   "fieldname": "registrant__name",
+   "fieldtype": "Read Only",
+   "label": "Registrant  Name"
+  },
+  {
+   "fieldname": "assinged_program",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Assinged Program",
+   "options": "Programs CSQ"
+  },
+  {
+   "fieldname": "col_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "col_2",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "participant_name",
+   "fieldtype": "Data",
+   "label": "Participant Name"
+  },
+  {
+   "fieldname": "col_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "row_1",
+   "fieldtype": "Section Break"
+  }
+ ],
+ "modified": "2020-05-08 23:01:44.538873",
+ "modified_by": "Administrator",
+ "module": "Clinical Study Questionnaire",
+ "name": "Participant CSQ",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "SJRI System Admin",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "title_field": "type",
+ "track_changes": 1
+}

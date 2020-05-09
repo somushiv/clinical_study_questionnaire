@@ -1,0 +1,55 @@
+{
+ "autoname": "QUEST.######",
+ "creation": "2020-04-28 00:12:17.154638",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "question",
+  "answers_section",
+  "answers"
+ ],
+ "fields": [
+  {
+   "columns": 8,
+   "fieldname": "question",
+   "fieldtype": "Data",
+   "label": "Question"
+  },
+  {
+   "fieldname": "answers_section",
+   "fieldtype": "Section Break",
+   "label": "Answers"
+  },
+  {
+   "fieldname": "answers",
+   "fieldtype": "Table",
+   "label": "Answers",
+   "options": "Answers CSQ"
+  }
+ ],
+ "modified": "2020-05-01 17:53:17.840670",
+ "modified_by": "Administrator",
+ "module": "Clinical Study Questionnaire",
+ "name": "Question CSQ",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "search_fields": "question",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "title_field": "question",
+ "track_changes": 1
+}

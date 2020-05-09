@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include clinical_study_questionnaire *.css
+recursive-include clinical_study_questionnaire *.csv
+recursive-include clinical_study_questionnaire *.html
+recursive-include clinical_study_questionnaire *.ico
+recursive-include clinical_study_questionnaire *.js
+recursive-include clinical_study_questionnaire *.json
+recursive-include clinical_study_questionnaire *.md
+recursive-include clinical_study_questionnaire *.png
+recursive-include clinical_study_questionnaire *.py
+recursive-include clinical_study_questionnaire *.svg
+recursive-include clinical_study_questionnaire *.txt
+recursive-exclude clinical_study_questionnaire *.pyc

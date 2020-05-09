@@ -1,0 +1,39 @@
+{
+ "autoname": "ANS.######",
+ "creation": "2020-04-28 00:05:01.174425",
+ "doctype": "DocType",
+ "document_type": "Document",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "answer_text",
+  "score"
+ ],
+ "fields": [
+  {
+   "fieldname": "answer_text",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Answer Text"
+  },
+  {
+   "fieldname": "score",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Score"
+  }
+ ],
+ "istable": 1,
+ "modified": "2020-05-01 18:37:17.381865",
+ "modified_by": "Administrator",
+ "module": "Clinical Study Questionnaire",
+ "name": "Answers CSQ",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "search_fields": "answer_text",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "title_field": "answer_text",
+ "track_changes": 1
+}

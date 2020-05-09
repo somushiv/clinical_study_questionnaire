@@ -1,0 +1,69 @@
+{
+ "autoname": "IV.####",
+ "creation": "2020-05-08 22:24:14.502143",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "interviewer_name",
+  "full_name",
+  "mobile",
+  "assinged_program",
+  "program_name"
+ ],
+ "fields": [
+  {
+   "fetch_from": "interviewer_name.full_name",
+   "fieldname": "full_name",
+   "fieldtype": "Read Only",
+   "in_list_view": 1,
+   "label": "Full Name"
+  },
+  {
+   "fieldname": "interviewer_name",
+   "fieldtype": "Link",
+   "label": "Interviewer Name",
+   "options": "User"
+  },
+  {
+   "fieldname": "mobile",
+   "fieldtype": "Int",
+   "label": "Mobile"
+  },
+  {
+   "fieldname": "assinged_program",
+   "fieldtype": "Link",
+   "label": "Assinged Program",
+   "options": "Programs CSQ"
+  },
+  {
+   "fetch_from": "assinged_program.program_name",
+   "fieldname": "program_name",
+   "fieldtype": "Read Only",
+   "label": "Program Name"
+  }
+ ],
+ "modified": "2020-05-08 23:22:37.001263",
+ "modified_by": "Administrator",
+ "module": "Clinical Study Questionnaire",
+ "name": "Interviewer CSQ",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

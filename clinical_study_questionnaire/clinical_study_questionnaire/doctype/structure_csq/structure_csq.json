@@ -1,0 +1,108 @@
+{
+ "autoname": "CSQ-ST.####",
+ "creation": "2020-04-27 19:27:16.083762",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "title",
+  "quesiton_code",
+  "lft",
+  "rgt",
+  "is_group",
+  "old_parent",
+  "parent_structure_csq",
+  "user_description_section",
+  "description",
+  "display_order"
+ ],
+ "fields": [
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "label": "Title"
+  },
+  {
+   "fieldname": "lft",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Left",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "rgt",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Right",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "is_group",
+   "fieldtype": "Check",
+   "label": "Is Group"
+  },
+  {
+   "fieldname": "old_parent",
+   "fieldtype": "Link",
+   "label": "Old Parent",
+   "options": "Structure CSQ"
+  },
+  {
+   "fieldname": "parent_structure_csq",
+   "fieldtype": "Link",
+   "label": "Parent Structure CSQ",
+   "options": "Structure CSQ"
+  },
+  {
+   "fieldname": "user_description_section",
+   "fieldtype": "Section Break",
+   "label": "User Description"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Text Editor",
+   "label": "Description"
+  },
+  {
+   "fieldname": "quesiton_code",
+   "fieldtype": "Data",
+   "label": "Quesiton Code",
+   "unique": 1
+  },
+  {
+   "fieldname": "display_order",
+   "fieldtype": "Int",
+   "label": "Display Order"
+  }
+ ],
+ "is_tree": 1,
+ "modified": "2020-05-08 23:35:54.994971",
+ "modified_by": "Administrator",
+ "module": "Clinical Study Questionnaire",
+ "name": "Structure CSQ",
+ "nsm_parent_field": "parent_structure_csq",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "search_fields": "title",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "title_field": "title",
+ "track_changes": 1
+}
