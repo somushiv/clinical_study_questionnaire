@@ -14,6 +14,7 @@
   "religion",
   "marital_status",
   "medical_school_year",
+  "mobile_number",
   "col_2",
   "assinged_program",
   "program_name",
@@ -27,7 +28,6 @@
   {
    "fieldname": "type",
    "fieldtype": "Select",
-   "in_list_view": 1,
    "label": "Type",
    "options": "Medical Student"
   },
@@ -88,7 +88,7 @@
    "options": "Interviewer CSQ"
   },
   {
-   "fetch_from": "registered_by.interviewer_name",
+   "fetch_from": "registered_by.full_name",
    "fieldname": "registrant__name",
    "fieldtype": "Read Only",
    "label": "Registrant  Name"
@@ -111,6 +111,7 @@
   {
    "fieldname": "participant_name",
    "fieldtype": "Data",
+   "in_list_view": 1,
    "label": "Participant Name"
   },
   {
@@ -120,9 +121,14 @@
   {
    "fieldname": "row_1",
    "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "mobile_number",
+   "fieldtype": "Data",
+   "label": "Mobile Number"
   }
  ],
- "modified": "2020-05-08 23:01:44.538873",
+ "modified": "2020-05-10 14:06:36.217375",
  "modified_by": "Administrator",
  "module": "Clinical Study Questionnaire",
  "name": "Participant CSQ",
