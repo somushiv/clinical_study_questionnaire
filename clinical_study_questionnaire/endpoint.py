@@ -49,29 +49,32 @@ def get_participant():
 	
 def form_participant(db_object):
 	
-	f_object=[
-  {
+	f_object={
+  "participant_name":{
     "variable_name": "participant_name",
+    "label":"Participant Name",
     "data_type": "varchar",
-    "value": validate_document(db_object,"participant_name")
+    "value": validate_document(db_object,"participant_name"),
+    "user_input":1
   },
-  {
-    "variable_name": "language",
-    "data_type": "varchar",
-    "value": "English"
-  },
-  {
+  
+  "mobile_number":{
     "variable_name": "mobile_number",
+    "label":"Mobile Number",
     "data_type": "varchar",
-    "value": validate_document(db_object,"mobile_number")
+    "value": validate_document(db_object,"mobile_number"),
+    "user_input":1
   },
-  {
+  "age":{
     "variable_name": "age",
+    "label":"Age",
     "data_type": "int",
-    "value":validate_document(db_object,"age")
+    "value":validate_document(db_object,"age"),
+    "user_input":1
   },
-  {
+  "gender":{
     "variable_name": "gendar",
+    "label":"Gendar",
     "data_type": "select",
     "value": validate_document(db_object,"gendar"),
     "option": [
@@ -81,10 +84,12 @@ def form_participant(db_object):
       "Decline to answer",
       "None",
       "Declined to answer"
-    ]
+    ],
+    "user_input":1
   },
-  {
+  "marital_status":{
     "variable_name": "marital_status",
+    "label":'Marital Status',
     "data_type": "select",
     "value": validate_document(db_object,"marital_status"),
     "option": [
@@ -95,10 +100,12 @@ def form_participant(db_object):
       "Widow/Widower",
       "Deserted",
       "Declined to answer"
-    ]
+    ],
+    "user_input":1
   },
-  {
+  "medical_school_year":{
     "variable_name": "medical_school_year",
+    "label":"Medical School Year",
     "data_type": "select",
     "value": validate_document(db_object,"medical_school_year"),
     "option": [
@@ -108,10 +115,12 @@ def form_participant(db_object):
       "Fourth Year MBBS",
       "Internship",
       "Declined to answer"
-    ]
+    ],
+    "user_input":1
   },
-  {
+  "religion":{
     "variable_name": "religion",
+    "label":"Religion",
     "data_type": "select",
     "value": validate_document(db_object,"religion"),
     "option": [
@@ -125,34 +134,61 @@ def form_participant(db_object):
       "Paris/ Zoroastrian",
       "None",
       "Declined to answer"
-    ]
+    ],
+    "user_input":1
   },
-  {
-    "variable_name": "program_name",
+  "parent_occupation":{
+    "variable_name": "parent_occupation",
+    "label":"Parent Occuption",
     "data_type": "varchar",
-    "value": validate_document(db_object,"program_name")
+    "value": validate_document(db_object,"parent_occupation"),
+    "user_input":1
   },
-  {
+  "language":{
+    "variable_name": "language",
+    "label":"Language",
+    "data_type": "varchar",
+    "value": "English",
+    "user_input":0
+  },
+  "participant_type":{
+    "variable_name": "participant_type",
+    "label":"Participant Type",
+    "data_type": "varchar",
+    "value": "Medical Student",
+    "user_input":0
+  },
+
+  
+  "program_name":{
+    "variable_name": "program_name",
+    "label":"Program Name",
+    "data_type": "varchar",
+    "value": validate_document(db_object,"program_name"),
+    "user_input":0
+  },
+  "assinged_program":{
     "variable_name": "assinged_program",
     "data_type": "varchar",
-    "value": validate_document(db_object,"assinged_program")
+    "value": validate_document(db_object,"assinged_program"),
+    "user_input":0
   },
-  {
+  "registrant__name":{
     "variable_name": "registrant__name",
+    "label": "Registrant name",
     "data_type": "varchar",
-    "value": validate_document(db_object,"registrant__name")
+    "value": validate_document(db_object,"registrant__name"),
+    "user_input":0
   },
-  {
+  "registered_by":{
     "variable_name": "registered_by",
+    "label":"Registered By",
     "data_type": "varchar",
-    "value": validate_document(db_object,"registered_by")
-  },
-  {
-    "variable_name": "parent_occupation",
-    "data_type": "varchar",
-    "value": validate_document(db_object,"parent_occupation")
+    "value": validate_document(db_object,"registered_by"),
+    "user_input":0
   }
-]
+  
+}
 	return f_object
 
 #Validate Field for Value

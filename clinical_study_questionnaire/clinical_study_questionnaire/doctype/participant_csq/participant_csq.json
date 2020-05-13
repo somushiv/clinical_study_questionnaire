@@ -6,9 +6,10 @@
  "engine": "InnoDB",
  "field_order": [
   "participant_name",
-  "type",
+  "participant_type",
   "language",
   "age",
+  "password",
   "col_1",
   "gendar",
   "religion",
@@ -26,15 +27,8 @@
  ],
  "fields": [
   {
-   "fieldname": "type",
-   "fieldtype": "Select",
-   "label": "Type",
-   "options": "Medical Student"
-  },
-  {
    "fieldname": "language",
    "fieldtype": "Select",
-   "in_list_view": 1,
    "label": "Language",
    "options": "English"
   },
@@ -79,6 +73,7 @@
    "fetch_from": "assinged_program.program_name",
    "fieldname": "program_name",
    "fieldtype": "Read Only",
+   "in_list_view": 1,
    "label": "Program Name"
   },
   {
@@ -91,12 +86,12 @@
    "fetch_from": "registered_by.full_name",
    "fieldname": "registrant__name",
    "fieldtype": "Read Only",
+   "in_list_view": 1,
    "label": "Registrant  Name"
   },
   {
    "fieldname": "assinged_program",
    "fieldtype": "Link",
-   "in_list_view": 1,
    "label": "Assinged Program",
    "options": "Programs CSQ"
   },
@@ -126,9 +121,20 @@
    "fieldname": "mobile_number",
    "fieldtype": "Data",
    "label": "Mobile Number"
+  },
+  {
+   "fieldname": "password",
+   "fieldtype": "Data",
+   "label": "Password"
+  },
+  {
+   "fieldname": "participant_type",
+   "fieldtype": "Select",
+   "label": "Participant Type",
+   "options": "Medical Student"
   }
  ],
- "modified": "2020-05-10 14:06:36.217375",
+ "modified": "2020-05-13 13:11:09.762246",
  "modified_by": "Administrator",
  "module": "Clinical Study Questionnaire",
  "name": "Participant CSQ",
@@ -160,8 +166,9 @@
   }
  ],
  "quick_entry": 1,
+ "search_fields": "participant_name",
  "sort_field": "modified",
  "sort_order": "DESC",
- "title_field": "type",
+ "title_field": "participant_name",
  "track_changes": 1
 }
