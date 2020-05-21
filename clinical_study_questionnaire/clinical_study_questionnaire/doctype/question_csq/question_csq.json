@@ -8,7 +8,7 @@
   "section_name",
   "section_title",
   "sb_01",
-  "data_4",
+  "has_image",
   "upload_image",
   "sec_01",
   "has_video",
@@ -33,12 +33,6 @@
    "fieldtype": "Table",
    "label": "Answers",
    "options": "Answers CSQ"
-  },
-  {
-   "default": "0",
-   "fieldname": "data_4",
-   "fieldtype": "Check",
-   "label": "Has Image?"
   },
   {
    "fieldname": "section_name",
@@ -79,9 +73,15 @@
    "fieldname": "sb_01",
    "fieldtype": "Section Break",
    "label": "Media"
+  },
+  {
+   "default": "0",
+   "fieldname": "has_image",
+   "fieldtype": "Check",
+   "label": "Has Image?"
   }
  ],
- "modified": "2020-05-09 11:54:00.967078",
+ "modified": "2020-05-21 22:33:30.751573",
  "modified_by": "Administrator",
  "module": "Clinical Study Questionnaire",
  "name": "Question CSQ",

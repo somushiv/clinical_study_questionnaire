@@ -5,7 +5,7 @@ import json
 def testapi():
     return "Calling from Endpoint"
 
-
+# ------ Validate Interviewer API ---------- #
 @frappe.whitelist()
 def interviewer_login():
 	#print(frappe.request.data)
@@ -24,6 +24,7 @@ def interviewer_login():
 
 	return (r_Object)
 
+# ------ Registration of the Particpants ------ #
 @frappe.whitelist()
 def get_participant():
 	p_object=json.loads(frappe.request.data)
@@ -191,9 +192,34 @@ def form_participant(db_object):
 }
 	return f_object
 
-#Validate Field for Value
+# ---- Validate Field for Value ---------
 def validate_document(doc_var,validate_key):	
 	if validate_key in doc_var.keys():
 		return doc_var[validate_key]
 	else:
 		return ""
+
+
+
+# ------ Validate Interviewer API ---------- #
+@frappe.whitelist()
+def particpant_login():
+	#print(frappe.request.data)
+	l_object=json.loads(frappe.request.data)
+
+	# This to be Updated Testing with Password
+	validate_count = frappe.db.count('Participant CSQ', {'mobile_number': l_object['mobile_number']})
+	print(validate_count)
+	if validate_count:
+		
+		r_Object=frappe.db.get_value('Participant CSQ', {'mobile_number': l_object['mobile_number']},['name', 'participant_name','mobile_number','medical_school_year','program_name','assinged_program'],as_dict=1)
+    ################## Concent Response to be updated
+		program_Object=frappe.db.get_value('Programs CSQ',{'name':r_Object['assinged_program']},['user_consent'],as_dict=1)
+		r_Object.update(program_Object)
+
+		r_Object.update({"response":"200","response_message":"Ok"})
+		print(r_Object)
+	else:
+		r_Object={"message":"204","response_message":"Not Found"}
+
+	return (r_Object)
