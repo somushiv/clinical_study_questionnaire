@@ -10,13 +10,10 @@ def testapi():
 def study_desing():
 	#print(frappe.request.data)
 	
-	r_study_desing={"CD001":{"label":"Baseline Assement","comment":"Post Registration"},
-        "CD002":{"label":"Intervention","comment":"Post Registration"},
-        "CD003":{"label":"Week Assessment","comment":"After 1 week"}}
-	
-	 
-	r_study_desing.update({"response":"200","response_message":"Ok"})
-	return (r_study_desing)
+    r_study_desing=[{"key_id":"CD001","label":"Baseline Assement","comment":"Post Registration"}, 
+            {"key_id":"CD002","label":"Intervention","comment":"Post Registration"},
+            {"key_id":"CD003","label":"Week Assessment","comment":"After 1 week"}]
+    return (r_study_desing)
 
 @frappe.whitelist()
 def questions():

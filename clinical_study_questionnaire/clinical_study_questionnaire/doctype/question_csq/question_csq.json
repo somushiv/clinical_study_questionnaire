@@ -14,7 +14,8 @@
   "has_video",
   "upload_video",
   "answers_section",
-  "answers"
+  "answers",
+  "question_type"
  ],
  "fields": [
   {
@@ -79,9 +80,15 @@
    "fieldname": "has_image",
    "fieldtype": "Check",
    "label": "Has Image?"
+  },
+  {
+   "fieldname": "question_type",
+   "fieldtype": "Select",
+   "label": "Question Type",
+   "options": "Single Answer\nMultiple Answer\nPlaceholder"
   }
  ],
- "modified": "2020-05-21 22:33:30.751573",
+ "modified": "2020-06-04 10:45:15.971375",
  "modified_by": "Administrator",
  "module": "Clinical Study Questionnaire",
  "name": "Question CSQ",
