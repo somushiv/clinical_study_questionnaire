@@ -16,6 +16,7 @@
   "marital_status",
   "medical_school_year",
   "mobile_number",
+  "email_id",
   "col_2",
   "assinged_program",
   "program_name",
@@ -124,7 +125,7 @@
   },
   {
    "fieldname": "password",
-   "fieldtype": "Data",
+   "fieldtype": "Password",
    "label": "Password"
   },
   {
@@ -132,9 +133,14 @@
    "fieldtype": "Select",
    "label": "Participant Type",
    "options": "Medical Student"
+  },
+  {
+   "fieldname": "email_id",
+   "fieldtype": "Data",
+   "label": "Email Id"
   }
  ],
- "modified": "2020-05-13 13:11:09.762246",
+ "modified": "2020-06-30 22:29:22.885824",
  "modified_by": "Administrator",
  "module": "Clinical Study Questionnaire",
  "name": "Participant CSQ",

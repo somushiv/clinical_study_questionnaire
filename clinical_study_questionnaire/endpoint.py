@@ -66,6 +66,20 @@ def form_participant(db_object):
     "value": validate_document(db_object,"mobile_number"),
     "user_input":1
   },
+  "email_id":{
+    "variable_name": "email_id",
+    "label":"Email ID",
+    "data_type": "varchar",
+    "value": validate_document(db_object,"email_id"),
+    "user_input":1
+  },
+    "password":{
+    "variable_name": "password",
+    "label":"Password",
+    "data_type": "varchar",
+    "value": validate_document(db_object,"password"),
+    "user_input":1
+  },
   "age":{
     "variable_name": "age",
     "label":"Age",
@@ -174,20 +188,8 @@ def form_participant(db_object):
     "value": validate_document(db_object,"assinged_program"),
     "user_input":0
   },
-  "registrant__name":{
-    "variable_name": "registrant__name",
-    "label": "Registrant name",
-    "data_type": "varchar",
-    "value": validate_document(db_object,"registrant__name"),
-    "user_input":0
-  },
-  "registered_by":{
-    "variable_name": "registered_by",
-    "label":"Registered By",
-    "data_type": "varchar",
-    "value": validate_document(db_object,"registered_by"),
-    "user_input":0
-  }
+ 
+  
   
 }
 	return f_object
@@ -198,6 +200,39 @@ def validate_document(doc_var,validate_key):
 		return doc_var[validate_key]
 	else:
 		return ""
+
+# ------ Particpants Self Registration ----- #
+@frappe.whitelist()
+def participant_registration():
+  # Validate for Unique Email.id and phone number
+  l_object = json.loads(frappe.request.data)
+
+  r_validate = frappe.db.count('Participant CSQ',{'mobile_number':  l_object['mobile_number'],'email_id':  l_object['email_id']})
+  if r_validate:
+    return_object={"message":"204","response_message":"User registred!!!"}
+  else:
+    doc = frappe.get_doc({
+      "doctype": 'Participant CSQ', 
+      "participant_name": l_object['participant_name'],
+      "mobile_number": l_object['mobile_number'],
+      "email_id": l_object['email_id'],
+      "password": l_object['password'],
+      "language": l_object['language'],
+      "age": l_object['age'],
+      "gendar": l_object['gendar'],
+      "marital_status": l_object['marital_status'],
+      "medical_school_year": l_object['medical_school_year'],
+      "religion": l_object['religion'],
+      "program_name": l_object['program_name'],
+      "assinged_program": l_object['assinged_program'],
+      "parent_occupation": l_object['parent_occupation']
+      })
+    doc.insert()
+    
+    return_object={"message":"200","response_message":"You have registred, You can login now!!!"}
+
+
+  return return_object
 
 
 
