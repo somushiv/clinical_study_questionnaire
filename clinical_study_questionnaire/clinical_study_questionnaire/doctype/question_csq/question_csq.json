@@ -5,6 +5,7 @@
  "engine": "InnoDB",
  "field_order": [
   "question",
+  "question_code",
   "section_name",
   "section_title",
   "sb_01",
@@ -86,9 +87,14 @@
    "fieldtype": "Select",
    "label": "Question Type",
    "options": "Single Answer\nMultiple Answer\nPlaceholder"
+  },
+  {
+   "fieldname": "question_code",
+   "fieldtype": "Data",
+   "label": "Question Code"
   }
  ],
- "modified": "2020-06-04 10:45:15.971375",
+ "modified": "2020-06-30 10:33:43.276384",
  "modified_by": "Administrator",
  "module": "Clinical Study Questionnaire",
  "name": "Question CSQ",
