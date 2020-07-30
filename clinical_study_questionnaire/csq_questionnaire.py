@@ -30,8 +30,7 @@ def get_csq_questions(var_section_name='', title_dist=''):
                                                   'section_name': var_section_name
                                               },
                                               fields=['name', 'section_title', 'question',
-                                                      'has_image', 'upload_image',
-                                                      'has_video', 'upload_video'],
+                                                      'upload_image', 'upload_video'],
                                               order_by='name',
                                               )
     #print(len(q_object))
@@ -49,6 +48,8 @@ def get_csq_questions(var_section_name='', title_dist=''):
        # print(q_object[x])
         x += 1
 
+    if len(q_object)>0:
+        q_object=q_object[0]
     return q_object
 
 def validate_none(q_row):
