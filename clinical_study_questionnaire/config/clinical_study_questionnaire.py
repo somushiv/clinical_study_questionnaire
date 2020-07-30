@@ -4,7 +4,7 @@ from frappe import _
 def get_data():
 	return [
 		{
-			"label": _("Clinical Study Questionnaire"),
+			"label": _("Question Master"),
 			"items": [
 				{
 					"type": "doctype",
@@ -22,16 +22,7 @@ def get_data():
 					"name": "Structure CSQ",
 					"description": _("Structure"),
 				},
-				{
-					"type": "doctype",
-					"name": "Interviewer CSQ",
-					"description": _("Interviewer"),
-				},
-				{
-					"type": "doctype",
-					"name": "Participant CSQ",
-					"description": _("Participant"),
-				},				 
+
 				 {
 					"type": "doctype",
 					"name": "Question CSQ",
@@ -43,4 +34,34 @@ def get_data():
 					"description": _("Anwsers"),
 				},
 			]
-		}]
+		},
+		{
+			"label": _("Manage users"),
+			"items": [
+				{
+					"type": "doctype",
+					"name": "Interviewer CSQ",
+					"description": _("Interviewer"),
+				},
+				{
+					"type": "doctype",
+					"name": "Participant CSQ",
+					"description": _("Participant"),
+				},
+			]
+		},
+	{
+			"label": _("Utilities"),
+			"items": [
+				{
+					"type": "page",
+					"name": "csq-structure",
+					"label": _("Sort Structure"),
+
+					"description": _("Sort Structure"),
+				},
+
+			]
+		}
+
+	]

@@ -1,0 +1,22 @@
+{% for n in row_data %}
+
+
+<div class="level list-row small" data-name="8fd302fa98" data-idx="{{n[\" name\"]}}" draggable="true" style="">
+<div class="level-left ellipsis">
+    <div class="list-row-col hidden-xs ellipsis " data-fieldname="role">
+        <i class="fa fa-bars" aria-hidden="true"></i> &nbsp;{{n["name"]}}
+    </div>
+    <div class="list-row-col hidden-xs ellipsis " data-fieldname="role">
+        {{n["title"]}}
+    </div>
+    <div class="list-row-col hidden-xs ellipsis" data-fieldname="role">
+        {{n["quesiton_code"]}}
+        {% if n["is_group"] %}
+             <a href="/desk#csq-structure/?name={{n[\"name\"]}}" class="btn btn-default  btn-xs pull-right">More</a>
+        {% endif %}
+    </div>
+</div>
+</div>
+
+{% endfor %}
+
