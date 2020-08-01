@@ -252,9 +252,26 @@ def particpant_login():
 		program_Object=frappe.db.get_value('Programs CSQ',{'name':r_Object['assinged_program']},['user_consent'],as_dict=1)
 		r_Object.update(program_Object)
 
-		r_Object.update({"response":"200","response_message":"Ok"})
-		print(r_Object)
-	else:
-		r_Object={"message":"204","response_message":"Not Found"}
+		return_object={"response":"200","response_message":"Ok"}
 
-	return (r_Object)
+	else:
+		return_object={"message":"204","response_message":"Not Found"}
+
+	return return_object
+
+# ------ Password Change API ---------- #
+@frappe.whitelist()
+def particpant_passwordchange():
+    l_object = json.loads(frappe.request.data)
+
+    # This to be Updated Testing with Password
+    r_object = frappe.db.get_value('Participant CSQ', {'mobile_number': l_object['mobile_number']})
+
+    if r_object:
+
+        frappe.db.set_value('Participant CSQ', r_object, 'password', l_object['password'])
+        return_object={"response": "200", "response_message": "Ok"}
+    else:
+        return_object={"response": "200", "response_message": "Not Found"}
+
+    return return_object

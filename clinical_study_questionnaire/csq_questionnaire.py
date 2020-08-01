@@ -88,7 +88,7 @@ def get_questions():
 
     for q_element in q_list:
         question = get_single_question(q_element.replace(" ", ""))
-        print(question)
+       # print(question)
 
 
 # def get_structure1():
