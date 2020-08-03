@@ -1,5 +1,6 @@
 import frappe
 import json
+import datetime
 
 @frappe.whitelist()
 def testapi():
@@ -275,3 +276,40 @@ def particpant_passwordchange():
         return_object={"response": "200", "response_message": "Not Found"}
 
     return return_object
+
+@frappe.whitelist()
+def particpant_response():
+    res_object = json.loads(frappe.request.data)
+    # get particpant  Name
+    par_object = frappe.db.get_value('Participant CSQ', {'name':res_object['particpant_id']}, ['name', 'participant_name'],as_dict=1)
+    pro_object = frappe.db.get_value('Programs CSQ', {'name': res_object['program_id']},['name', 'program_name'],as_dict=1)
+
+
+    doc = frappe.new_doc('Responses CSQ')
+    doc.participant_id = res_object['particpant_id']
+    doc.participant_name=par_object['participant_name']
+    doc.program_id=res_object['program_id']
+    doc.program_name = pro_object['program_name']
+    doc.response_date=datetime.datetime.now()
+    doc.insert()
+
+    # ----- Get Inserted Value ----- #
+    response_object = frappe.db.get_value('Responses CSQ', {'participant_id': res_object['particpant_id'],'program_id': res_object['program_id']},['name'], as_dict=1)
+
+    # --- Update to Answer Table --
+    idx=1
+    for answer_row in res_object['answers']:
+        ans_doc = frappe.new_doc('Responses Answer CSQ')
+        ans_doc.parent = response_object['name']
+        ans_doc.parentfield = 'response_answer'
+        ans_doc.parenttype ='Responses CSQ'
+        ans_doc.idx=idx
+        ans_doc.question_id =answer_row['question_id']
+        ans_doc.response_answer = answer_row['response_answer']
+        ans_doc.insert()
+
+        print(answer_row['question_id'])
+
+
+    return_object = {"response": "200", "response_message": "Ok"}
+    return  response_object

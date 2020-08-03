@@ -1,0 +1,75 @@
+{
+ "autoname": "RES.############",
+ "creation": "2020-08-03 14:46:11.428106",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "response_date",
+  "participant_id",
+  "participant_name",
+  "program_id",
+  "program_name",
+  "response_answer"
+ ],
+ "fields": [
+  {
+   "fieldname": "response_date",
+   "fieldtype": "Date",
+   "label": "Response Date"
+  },
+  {
+   "fieldname": "participant_id",
+   "fieldtype": "Link",
+   "label": "Participant ID",
+   "options": "Participant CSQ"
+  },
+  {
+   "fetch_from": "participant_id.participant_name",
+   "fieldname": "participant_name",
+   "fieldtype": "Read Only",
+   "label": "Participant Name"
+  },
+  {
+   "fieldname": "program_id",
+   "fieldtype": "Link",
+   "label": "Program ID",
+   "options": "Programs CSQ"
+  },
+  {
+   "fetch_from": "program_id.program_name",
+   "fieldname": "program_name",
+   "fieldtype": "Read Only",
+   "label": "Program Name"
+  },
+  {
+   "fieldname": "response_answer",
+   "fieldtype": "Table",
+   "label": "Response Answer",
+   "options": "Responses Answer CSQ"
+  }
+ ],
+ "modified": "2020-08-03 16:47:39.191745",
+ "modified_by": "Administrator",
+ "module": "Clinical Study Questionnaire",
+ "name": "Responses CSQ",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}
