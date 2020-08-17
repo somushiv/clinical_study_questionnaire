@@ -240,25 +240,45 @@ def participant_registration():
 # ------ Validate Interviewer API ---------- #
 @frappe.whitelist()
 def particpant_login():
-	#print(frappe.request.data)
-	l_object=json.loads(frappe.request.data)
+  #print(frappe.request.data)
+  l_object=json.loads(frappe.request.data)
 
-	# This to be Updated Testing with Password
-	validate_count = frappe.db.count('Participant CSQ', {'mobile_number': l_object['mobile_number']})
-	print(validate_count)
-	if validate_count:
-		
-		r_Object=frappe.db.get_value('Participant CSQ', {'mobile_number': l_object['mobile_number']},['name', 'participant_name','mobile_number','medical_school_year','program_name','assinged_program'],as_dict=1)
-    ################## Concent Response to be updated
-		program_Object=frappe.db.get_value('Programs CSQ',{'name':r_Object['assinged_program']},['user_consent'],as_dict=1)
-		r_Object.update(program_Object)
+  # This to be Updated Testing with Password
+  validate_count = frappe.db.count('Participant CSQ', {'mobile_number': l_object['mobile_number']})
+  if validate_count:
+    r_Object = frappe.db.get_value('Participant CSQ', {'mobile_number': l_object['mobile_number']},
+                                   ['name', 'participant_name', 'mobile_number', 'medical_school_year', 'program_name',
+                                    'assinged_program'], as_dict=1)
+  #
+    response_stage=validate_response_stage(r_Object['name'])
+    r_Object.update(response_stage)
+    if response_stage['response_stage']==1:
+      ################# Concent Response to be updated
 
-		return_object={"response":"200","response_message":"Ok"}
+      program_Object = frappe.db.get_value('Programs CSQ', {'name': r_Object['assinged_program']}, ['user_consent'],
+                                           as_dict=1)
 
-	else:
-		return_object={"message":"204","response_message":"Not Found"}
+      r_Object.update(program_Object)
 
-	return return_object
+    return_object = r_Object
+  else:
+    return_object = {"message": "204", "response_message": "Not Found"}
+
+
+
+
+
+
+  return return_object
+
+def validate_response_stage(participant_id):
+  rs_count =frappe.db.count('Responses CSQ',{'participant_id':participant_id})
+  if rs_count==0:
+    return {"response_stage": 1, "user_text": "Not Started"}
+  elif rs_count==1:
+    return {"response_stage": 2, "user_text": "Stage 2"}
+  elif rs_count==2:
+    return {"response_stage": -2, "user_text": "Completed"}
 
 # ------ Password Change API ---------- #
 @frappe.whitelist()
@@ -290,6 +310,7 @@ def particpant_response():
     doc.participant_name=par_object['participant_name']
     doc.program_id=res_object['program_id']
     doc.program_name = pro_object['program_name']
+    doc.response_stage = pro_object['response_stage']
     doc.response_date=datetime.datetime.now()
     doc.insert()
 

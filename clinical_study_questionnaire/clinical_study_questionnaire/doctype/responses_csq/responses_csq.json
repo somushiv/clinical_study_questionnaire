@@ -10,7 +10,8 @@
   "participant_name",
   "program_id",
   "program_name",
-  "response_answer"
+  "response_answer",
+  "response_stage"
  ],
  "fields": [
   {
@@ -47,9 +48,14 @@
    "fieldtype": "Table",
    "label": "Response Answer",
    "options": "Responses Answer CSQ"
+  },
+  {
+   "fieldname": "response_stage",
+   "fieldtype": "Int",
+   "label": "Response Stage"
   }
  ],
- "modified": "2020-08-03 16:47:39.191745",
+ "modified": "2020-08-17 14:35:13.456669",
  "modified_by": "Administrator",
  "module": "Clinical Study Questionnaire",
  "name": "Responses CSQ",
