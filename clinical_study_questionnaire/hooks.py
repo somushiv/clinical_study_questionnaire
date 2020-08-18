@@ -16,11 +16,12 @@ app_license = "MIT"
 
 # include js, css files in header of desk.html
 # app_include_css = "/assets/clinical_study_questionnaire/css/clinical_study_questionnaire.css"
-# app_include_js = "/assets/clinical_study_questionnaire/js/clinical_study_questionnaire.js"
+#app_include_js = "/assets/clinical_study_questionnaire/js/clinical_study_questionnaire.js"
+#app_include_js =["/assets/clinical_study_questionnaire/js/csq_datatable.js"]
 
 # include js, css files in header of web template
 # web_include_css = "/assets/clinical_study_questionnaire/css/clinical_study_questionnaire.css"
-# web_include_js = "/assets/clinical_study_questionnaire/js/clinical_study_questionnaire.js"
+#web_include_js = "/assets/clinical_study_questionnaire/js/clinical_study_questionnaire.js"
 
 # include js in page
 # page_js = {"page" : "public/js/file.js"}

@@ -1,0 +1,19 @@
+{
+ "content": null,
+ "creation": "2020-08-17 16:10:23.256894",
+ "docstatus": 0,
+ "doctype": "Page",
+ "idx": 0,
+ "modified": "2020-08-17 16:10:23.256894",
+ "modified_by": "Administrator",
+ "module": "Clinical Study Questionnaire",
+ "name": "csq-response-view",
+ "owner": "Administrator",
+ "page_name": "csq-response-view",
+ "roles": [],
+ "script": null,
+ "standard": "Yes",
+ "style": null,
+ "system_page": 0,
+ "title": "Responses"
+}

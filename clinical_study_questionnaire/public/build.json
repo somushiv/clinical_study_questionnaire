@@ -1,0 +1,7 @@
+{
+	
+		"js/csq_datatable.js":[
+			"public/js/datacustom.js"
+			"public/js/datatables.min.js"
+		]
+}

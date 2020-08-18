@@ -48,6 +48,13 @@ def get_data():
 					"name": "Participant CSQ",
 					"description": _("Participant"),
 				},
+			 
+				{
+					"type": "page",
+					"name": "csq-response-view",
+					"label": _("Responses, Participants"),
+					"description": _("Responses"),
+				},
 			]
 		},
 	{
