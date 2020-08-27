@@ -310,7 +310,7 @@ def particpant_response():
     doc.participant_name=par_object['participant_name']
     doc.program_id=res_object['program_id']
     doc.program_name = pro_object['program_name']
-    doc.response_stage = pro_object['response_stage']
+    doc.response_stage = res_object['response_stage']
     doc.response_date=datetime.datetime.now()
     doc.insert()
 
