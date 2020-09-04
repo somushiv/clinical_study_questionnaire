@@ -46,7 +46,7 @@ def validate_response_stage(participant_id):
         return -1
 
 
-@frappe.whitelist()
+
 def get_csq_questions(var_section_name='', title_dist=''):
     # q_object = frappe.db.get_list('Question CSQ',{'section_name':['IN','CSQ-ST0003','CSQ-ST0002']},
     # ['section_title','name','question',  'upload_image'])
@@ -61,8 +61,9 @@ def get_csq_questions(var_section_name='', title_dist=''):
                                           'upload_image', 'upload_video'],
                                   order_by='name',
                                   )
-    # print(len(q_object))
+
     x = 0
+
     for q_row in q_object:
         # -- Get Answers --
         q_row = validate_none(q_row)
@@ -73,11 +74,11 @@ def get_csq_questions(var_section_name='', title_dist=''):
         # update Title
         q_object[x].update({'page_titles': title_dist})
 
-        # print(q_object[x])
         x += 1
 
-    if len(q_object) > 0:
+    if len(q_object) == 1:
         q_object = q_object[0]
+
     return q_object
 
 
@@ -143,12 +144,12 @@ def get_questions():
 
 @frappe.whitelist()
 def questions():
-    return_questions = get_structure()
+    return_questions = get_structure('CSQ-ST0001', 1, {'h1': '', 'h2': '', 'h3': ''}, [])
     # print(return_questions)
     return return_questions
 
 
-def get_structure(var_name='CSQ-ST0001', title_counter=1, title_dist={'h1': '', 'h2': '', 'h3': ''}, question_list=[]):
+def get_structure(var_name, title_counter, title_dist, question_list):
     structure_object = frappe.db.get_list('Structure CSQ',
                                           filters={
                                               'parent_structure_csq': var_name
@@ -158,7 +159,7 @@ def get_structure(var_name='CSQ-ST0001', title_counter=1, title_dist={'h1': '', 
                                           )
 
     for s_row in structure_object:
-        # print(s_row)
+        #print(s_row)
         siblings = validate_siblings(s_row['name'])
         if title_counter == 1:
             title_dist = {'h1': '', 'h2': '', 'h3': ''}
@@ -170,7 +171,12 @@ def get_structure(var_name='CSQ-ST0001', title_counter=1, title_dist={'h1': '', 
         else:
             pass
         # print('***** title *****', title_dist)
-        question_list.append(get_csq_questions(s_row['name'], title_dist))
+        question_return=get_csq_questions(s_row['name'], title_dist)
+        if type(question_return) is list:
+            for q_return_row in question_return:
+                question_list.append(q_return_row)
+
+
 
     return question_list
 
