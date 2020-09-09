@@ -22,12 +22,17 @@ def get_data():
 					"name": "Structure CSQ",
 					"description": _("Structure"),
 				},
-
+				{
+					"type": "doctype",
+					"name": "CSQ Intervention",
+					"description": _("CSQ Intervention"),
+				},
 				 {
 					"type": "doctype",
 					"name": "Question CSQ",
 					"description": _("Questions"),
 				},
+
 				 {
 					"type": "doctype",
 					"name": "Answers CSQ",
