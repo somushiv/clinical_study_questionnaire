@@ -21,11 +21,11 @@ def study_design():
     # Validate logged in Particpant status
     response_satus = validate_response_stage(particpant_id)
     print(response_satus)
-    if response_satus>=0:
+    if response_satus >= 0:
         x = 0
         for q_row in q_object:
             menu_object = {"status": 0, 'response_stage': 0}
-            if response_satus>-2:
+            if response_satus > -2:
                 vCheck = response_satus + 1;
                 if q_row['study_order'] == vCheck:
                     menu_object = {"status": 1, 'response_stage': q_row['study_order']}
@@ -33,7 +33,7 @@ def study_design():
             q_object[x].update(menu_object)
             x = x + 1
     else:
-        q_object=[{
+        q_object = [{
             "name": "Nothing",
             "title": "Thank you for Completing questionnaire",
             "study_order": 0,
@@ -41,24 +41,22 @@ def study_design():
             "response_stage": 0
         }]
 
-
-
     return (q_object)
 
 
-def validate_response_stage(participant_id):
-    rs_count = frappe.db.count('Responses CSQ', {'participant_id': participant_id})
-
+def validate_response_stage(participant_id='NS00002'):
+    part_object = frappe.db.get_list('Responses CSQ', {'participant_id': participant_id},
+                                  group_by='response_stage')
+    rs_count=len(part_object)
 
     if rs_count == 0:
         return 0
     elif rs_count == 1:
         return 1
-    elif rs_count ==2:
+    elif rs_count == 2:
         return 2
     elif rs_count == 3:
         return -1
-
 
 
 def get_csq_questions(var_section_name='', title_dist=''):
@@ -158,19 +156,18 @@ def get_questions():
 
 def interaction_module():
     structure_object = frappe.db.get_list('CSQ Intervention',
-                                          fields=['name','intervention_title','intervention_description','media_type', 'media'],
+                                          fields=['name', 'intervention_title', 'intervention_description',
+                                                  'media_type', 'media'],
                                           order_by='name')
     return structure_object
-
-
 
 
 @frappe.whitelist()
 def questions():
     l_object = json.loads(frappe.request.data)
-    response_stage=l_object['response_stage']
+    response_stage = l_object['response_stage']
     if response_stage == 2:
-        return_questions= interaction_module()
+        return_questions = interaction_module()
     else:
         return_questions = get_structure('CSQ-ST0001', 1, {'h1': '', 'h2': '', 'h3': ''}, [])
     # print(return_questions)
@@ -187,7 +184,7 @@ def get_structure(var_name, title_counter, title_dist, question_list):
                                           )
 
     for s_row in structure_object:
-        #print(s_row)
+        # print(s_row)
         siblings = validate_siblings(s_row['name'])
         if title_counter == 1:
             title_dist = {'h1': '', 'h2': '', 'h3': ''}
@@ -199,12 +196,10 @@ def get_structure(var_name, title_counter, title_dist, question_list):
         else:
             pass
         # print('***** title *****', title_dist)
-        question_return=get_csq_questions(s_row['name'], title_dist)
+        question_return = get_csq_questions(s_row['name'], title_dist)
         if type(question_return) is list:
             for q_return_row in question_return:
                 question_list.append(q_return_row)
-
-
 
     return question_list
 
