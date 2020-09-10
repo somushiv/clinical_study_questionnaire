@@ -174,10 +174,12 @@ def questions():
     if response_stage == 2:
         return_questions = interaction_module()
         question_mode=2
+        returnObject = {'question_mode': question_mode, 'interaction_questions': return_questions}
     else:
         return_questions = get_structure('CSQ-ST0001', 1, {'h1': '', 'h2': '', 'h3': ''}, [])
+        returnObject = {'question_mode': question_mode, 'questions': return_questions}
     # print(return_questions)
-    returnObject={'question_mode':question_mode,'interaction_questions':return_questions}
+
     return returnObject
 
 
