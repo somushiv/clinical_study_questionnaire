@@ -166,6 +166,8 @@ def interaction_module():
 def questions():
     l_object = json.loads(frappe.request.data)
     response_stage = l_object['response_stage']
+    if type(response_stage)==str:
+        response_stage=int(response_stage)
     if response_stage == 2:
         return_questions = interaction_module()
     else:
