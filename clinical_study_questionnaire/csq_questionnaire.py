@@ -177,7 +177,7 @@ def questions():
     else:
         return_questions = get_structure('CSQ-ST0001', 1, {'h1': '', 'h2': '', 'h3': ''}, [])
     # print(return_questions)
-    returnObject={'question_mode':question_mode,'questions':return_questions}
+    returnObject={'question_mode':question_mode,'interaction_questions':return_questions}
     return returnObject
 
 
