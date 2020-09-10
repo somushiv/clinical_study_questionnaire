@@ -166,14 +166,19 @@ def interaction_module():
 def questions():
     l_object = json.loads(frappe.request.data)
     response_stage = l_object['response_stage']
+
     if type(response_stage)==str:
         response_stage=int(response_stage)
+
+    question_mode=1
     if response_stage == 2:
         return_questions = interaction_module()
+        question_mode=2
     else:
         return_questions = get_structure('CSQ-ST0001', 1, {'h1': '', 'h2': '', 'h3': ''}, [])
     # print(return_questions)
-    return return_questions
+    returnObject={'question_mode':question_mode,'questions':return_questions}
+    return returnObject
 
 
 def get_structure(var_name, title_counter, title_dist, question_list):
