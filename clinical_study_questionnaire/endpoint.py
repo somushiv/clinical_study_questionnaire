@@ -272,13 +272,22 @@ def particpant_login():
   return return_object
 
 def validate_response_stage(participant_id):
-  rs_count =frappe.db.count('Responses CSQ',{'participant_id':participant_id})
+  #rs_count =frappe.db.count('Responses CSQ',{'participant_id':participant_id})
+  part_object = frappe.db.get_list('Responses CSQ', {'participant_id': participant_id},
+                                  group_by='response_stage')
+  rs_count=len(part_object)
+
+
   if rs_count==0:
     return {"response_stage": 1, "user_text": "Not Started"}
   elif rs_count==1:
-    return {"response_stage": 2, "user_text": "Stage 2"}
+    return {"response_stage": 2, "user_text": "Intervention"}
   elif rs_count==2:
-    return {"response_stage": -2, "user_text": "Completed"}
+    return {"response_stage": 3, "user_text": "Assessment"}
+  elif rs_count==3:
+    return {"response_stage": -1, "user_text": "Completed"}
+
+      
 
 # ------ Password Change API ---------- #
 @frappe.whitelist()
