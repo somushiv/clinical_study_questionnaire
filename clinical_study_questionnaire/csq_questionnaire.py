@@ -79,8 +79,26 @@ def get_csq_questions(var_section_name='', title_dist=''):
     for q_row in q_object:
         # -- Get Answers --
         q_row = validate_none(q_row)
-        a_object = frappe.db.get_list('Answers CSQ', {'parent': q_row['name']}, ['answer_text', 'score'])
+        a_object = frappe.db.get_list('Answers CSQ', {'parent': q_row['name']}, ['answer_text', 'score', 'branch_question', 'text_input'])
+
+        xy=0
+        for a_obj in a_object:
+
+            if a_obj['branch_question'] is None:
+
+                a_object[xy]['branch_question']="0";
+
+            if a_obj['text_input'] is None:
+                a_object[xy]['text_input'] = 0;
+            elif a_obj['text_input'] == 'No':
+                a_object[xy]['text_input'] = 0
+            elif a_obj['text_input'] == 'yes':
+                a_object[xy]['text_input'] = 1
+            xy=xy+1
+
+
         answer_object = {"answer": a_object}
+
         q_object[x].update(answer_object)
 
         # update Title
