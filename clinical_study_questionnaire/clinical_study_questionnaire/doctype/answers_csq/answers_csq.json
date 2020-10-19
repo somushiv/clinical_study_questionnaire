@@ -35,11 +35,11 @@
    "fieldtype": "Select",
    "in_list_view": 1,
    "label": "Text Input",
-   "options": "0:No\n1:Yes"
+   "options": "No\nYes"
   }
  ],
  "istable": 1,
- "modified": "2020-10-19 10:38:40.895704",
+ "modified": "2020-10-19 23:18:11.048688",
  "modified_by": "Administrator",
  "module": "Clinical Study Questionnaire",
  "name": "Answers CSQ",
