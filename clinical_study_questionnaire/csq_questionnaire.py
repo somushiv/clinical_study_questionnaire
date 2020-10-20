@@ -71,7 +71,7 @@ def get_csq_questions(var_section_name='', title_dist=''):
                                   },
                                   fields=['name', 'section_title', 'question',
                                           'upload_image', 'upload_video'],
-                                  order_by='name',
+                                  order_by='display_order',
                                   )
 
     x = 0
