@@ -1,0 +1,30 @@
+<style>
+.get-answers:hover {
+    cursor: pointer;
+    background-color: #E8E8E7;
+}
+</style>
+<ul class="list-group">
+{% for n in structure_data %}
+    <li  class="list-group-item
+    {% if !n.is_group %}
+        get-answers
+    {% endif %}
+" dataref="{{ n.name }}">{{ n.title }}
+        <span class="badge">{{ n.quesiton_code }}</span>
+        {% if n.is_group %}
+            <ul class="list-group">
+                {% for m in n.children_list %}
+                <li class="list-group-item get-answers  " dataref="{{ m.name }}">{{ m.title }}
+
+                        <span class="badge" dataref="{{ m.name }}"> {{ m.quesiton_code }}</span>
+                </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+    </li>
+
+
+{% endfor %}
+</ul>

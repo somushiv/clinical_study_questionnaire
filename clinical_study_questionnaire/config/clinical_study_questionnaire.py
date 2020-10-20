@@ -72,6 +72,13 @@ def get_data():
 
 					"description": _("Sort Structure"),
 				},
+				{
+					"type": "page",
+					"name": "sort-question",
+					"label": _("Sort Quesiton"),
+
+					"description": _("Sort Quesiton"),
+				},
 
 			]
 		}

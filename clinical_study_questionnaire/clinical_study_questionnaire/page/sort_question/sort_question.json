@@ -1,0 +1,23 @@
+{
+ "content": null,
+ "creation": "2020-10-20 10:34:09.298939",
+ "docstatus": 0,
+ "doctype": "Page",
+ "idx": 0,
+ "modified": "2020-10-20 10:34:09.298939",
+ "modified_by": "Administrator",
+ "module": "Clinical Study Questionnaire",
+ "name": "sort-question",
+ "owner": "Administrator",
+ "page_name": "sort-question",
+ "roles": [
+  {
+   "role": "All"
+  }
+ ],
+ "script": null,
+ "standard": "Yes",
+ "style": null,
+ "system_page": 0,
+ "title": "Sort Question"
+}

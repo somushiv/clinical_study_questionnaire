@@ -16,7 +16,8 @@
   "upload_video",
   "answers_section",
   "answers",
-  "question_type"
+  "question_type",
+  "display_order"
  ],
  "fields": [
   {
@@ -92,9 +93,14 @@
    "fieldname": "question_code",
    "fieldtype": "Data",
    "label": "Question Code"
+  },
+  {
+   "fieldname": "display_order",
+   "fieldtype": "Int",
+   "label": "Display Order"
   }
  ],
- "modified": "2020-06-30 10:33:43.276384",
+ "modified": "2020-10-20 14:01:16.660454",
  "modified_by": "Administrator",
  "module": "Clinical Study Questionnaire",
  "name": "Question CSQ",
