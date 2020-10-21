@@ -6,7 +6,8 @@
  "engine": "InnoDB",
  "field_order": [
   "question_id",
-  "response_answer"
+  "response_answer",
+  "text_input"
  ],
  "fields": [
   {
@@ -20,10 +21,15 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Answer"
+  },
+  {
+   "fieldname": "text_input",
+   "fieldtype": "Text",
+   "label": "Text input"
   }
  ],
  "istable": 1,
- "modified": "2020-08-03 16:47:58.907138",
+ "modified": "2020-10-21 16:35:26.432890",
  "modified_by": "Administrator",
  "module": "Clinical Study Questionnaire",
  "name": "Responses Answer CSQ",

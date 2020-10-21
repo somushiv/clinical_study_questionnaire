@@ -336,6 +336,7 @@ def particpant_response():
         ans_doc.idx=idx
         ans_doc.question_id =answer_row['question_id']
         ans_doc.response_answer = answer_row['response_answer']
+        ans_doc.text_input=answer_row['text_input']
         ans_doc.insert()
 
         print(answer_row['question_id'])
