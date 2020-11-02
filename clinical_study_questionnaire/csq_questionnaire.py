@@ -1,7 +1,7 @@
 import frappe
 import json
 import sys
-
+from frappe.utils import get_url
 
 @frappe.whitelist()
 def test_api():
@@ -175,8 +175,23 @@ def get_questions():
 def interaction_module():
     structure_object = frappe.db.get_list('CSQ Intervention',
                                           fields=['name', 'intervention_title', 'intervention_description',
-                                                  'media_type', 'media'],
+                                                  'media_type', 'media','youtube_link'],
                                           order_by='name')
+    idx=0
+    for structure_row in structure_object:
+        print(structure_row['name'])
+        if structure_row['media_type']!="Youtube":
+            structure_object[idx]["media"]=get_url()+structure_row['media']
+        else:
+            structure_object[idx]["media"] =  structure_row['youtube_link']
+        idx=idx+1
+
+
+
+    print(frappe.local.request.host)
+    site_name =get_url()
+    print(site_name)
+    print(structure_object)
     return structure_object
 
 

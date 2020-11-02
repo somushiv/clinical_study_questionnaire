@@ -8,7 +8,8 @@
   "intervention_title",
   "intervention_description",
   "media",
-  "media_type"
+  "media_type",
+  "youtube_link"
  ],
  "fields": [
   {
@@ -30,10 +31,16 @@
    "fieldname": "media_type",
    "fieldtype": "Select",
    "label": "Media Type",
-   "options": "\nImage\nVideo"
+   "options": "\nImage\nVideo\nYoutube"
+  },
+  {
+   "depends_on": "eval:doc.media_type=='Youtube';",
+   "fieldname": "youtube_link",
+   "fieldtype": "Data",
+   "label": "Youtube Link"
   }
  ],
- "modified": "2020-09-09 12:07:24.225432",
+ "modified": "2020-11-02 15:34:47.123221",
  "modified_by": "Administrator",
  "module": "Clinical Study Questionnaire",
  "name": "CSQ Intervention",
