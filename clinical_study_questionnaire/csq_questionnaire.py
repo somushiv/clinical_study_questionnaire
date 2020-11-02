@@ -92,7 +92,7 @@ def get_csq_questions(var_section_name='', title_dist=''):
                 a_object[xy]['text_input'] = 0;
             elif a_obj['text_input'] == 'No':
                 a_object[xy]['text_input'] = 0
-            elif a_obj['text_input'] == 'yes':
+            elif a_obj['text_input'] == 'Yes':
                 a_object[xy]['text_input'] = 1
             xy=xy+1
 
