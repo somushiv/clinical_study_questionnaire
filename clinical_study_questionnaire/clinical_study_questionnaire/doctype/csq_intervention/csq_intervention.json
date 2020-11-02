@@ -15,6 +15,7 @@
   {
    "fieldname": "intervention_title",
    "fieldtype": "Data",
+   "in_list_view": 1,
    "label": "Title"
   },
   {
@@ -40,7 +41,7 @@
    "label": "Youtube Link"
   }
  ],
- "modified": "2020-11-02 15:34:47.123221",
+ "modified": "2020-11-02 16:46:39.157139",
  "modified_by": "Administrator",
  "module": "Clinical Study Questionnaire",
  "name": "CSQ Intervention",
