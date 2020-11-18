@@ -11,9 +11,17 @@ def test_api():
 # ------ Validate Interviewer API ---------- #
 @frappe.whitelist()
 def study_design():
+
     # print(frappe.request.data)
     l_object = json.loads(frappe.request.data)
     particpant_id = l_object['particpant_id']
+
+
+    #For Intervention only
+    particpant_object = frappe.db.get_value('Participant CSQ', {'name': particpant_id},['name','assinged_program'],as_dict=1)
+    print(particpant_object)
+
+
     q_object = frappe.db.get_list('Study Desing CSQ', filters={'strudy_program': 'CSQ0001'},
                                   fields=['name', 'title', 'study_order'],
                                   order_by='study_order')
@@ -32,6 +40,14 @@ def study_design():
                     print(menu_object)
             q_object[x].update(menu_object)
             x = x + 1
+
+    if (particpant_object['assinged_program']=='CSQ0003'):
+        q_object[1]['status']=1
+        del q_object[0]
+        del q_object[1]
+        print(q_object)
+
+
     else:
         q_object = [{
             "name": "Nothing",
@@ -40,6 +56,10 @@ def study_design():
             "status": -1,
             "response_stage": 0
         }]
+
+
+
+
 
     return (q_object)
 
