@@ -45,6 +45,7 @@ def study_design():
         q_object[1]['status']=1
         del q_object[0]
         del q_object[1]
+        q_object[0]["response_stage"]=2
         print(q_object)
 
 
@@ -222,7 +223,7 @@ def questions():
 
     if type(response_stage)==str:
         response_stage=int(response_stage)
-
+    print("response_stage ", response_stage)
     question_mode=1
     if response_stage == 2:
         return_questions = interaction_module()
