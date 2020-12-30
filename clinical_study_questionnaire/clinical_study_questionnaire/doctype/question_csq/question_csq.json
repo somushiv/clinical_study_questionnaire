@@ -23,7 +23,7 @@
   {
    "columns": 8,
    "fieldname": "question",
-   "fieldtype": "Data",
+   "fieldtype": "Text",
    "label": "Question"
   },
   {
@@ -100,7 +100,7 @@
    "label": "Display Order"
   }
  ],
- "modified": "2020-10-20 14:01:16.660454",
+ "modified": "2020-12-30 21:36:47.358918",
  "modified_by": "Administrator",
  "module": "Clinical Study Questionnaire",
  "name": "Question CSQ",

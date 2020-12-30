@@ -13,7 +13,7 @@ def structure_list(n_lavel=''):
     if not n_lavel:
         #Patch for dynamic top
         structure_data = frappe.db.get_value('Structure CSQ', {'title' : 'Start'}, ['name'], as_dict=1)
-        
+
         n_lavel = structure_data["name"]
 
     # Get Root Node which has value left =1
