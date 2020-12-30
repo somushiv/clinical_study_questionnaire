@@ -11,7 +11,10 @@ def get_data_clinical():
 def structure_list(n_lavel=''):
     n_lavel = frappe.form.get('n_level')
     if not n_lavel:
-        n_lavel = 'CSQ-ST0001'
+        #Patch for dynamic top
+        structure_data = frappe.db.get_value('Structure CSQ', {'title' : 'Start'}, ['name'], as_dict=1)
+        
+        n_lavel = structure_data["name"]
 
     # Get Root Node which has value left =1
     # root_keyobject=frappe.db.get_list('Structure CSQ',
