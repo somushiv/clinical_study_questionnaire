@@ -45,7 +45,7 @@ def get_question_list(n_lavel=''):
                                       filters={
                                           'section_name':n_lavel
                                       },
-                                      fields=['name', 'question', 'section_name', 'display_order'],
+                                      fields=['name', 'question', 'section_name', 'display_order','question_code'],
                                       order_by='display_order')
 
 

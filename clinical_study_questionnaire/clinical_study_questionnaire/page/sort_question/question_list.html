@@ -1,4 +1,7 @@
 
+<style>
+    .questioncode{color:#FF0012}
+</style>
 <h2 class="structure-title-reference">ss</h2>
 {% for n in row_data %}
 
@@ -6,7 +9,7 @@
 <div class="level-left ellipsis">
 
     <div class="list-row-col hidden-xs ellipsis " data-fieldname="role">
-      <i class="fa fa-bars" aria-hidden="true"></i> &nbsp;  {{n["question"]}}
+        <i class="fa fa-bars" aria-hidden="true"></i>  <span class="questioncode">{{n["question_code"]}}</span>&nbsp;  {{n["question"]}}
     </div>
 
 </div>
