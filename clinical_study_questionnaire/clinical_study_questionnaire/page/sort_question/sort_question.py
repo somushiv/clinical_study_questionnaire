@@ -3,7 +3,15 @@ import frappe
 import json
 
 @frappe.whitelist()
-def get_structure_list(structure_key='CSQ-ST0001'):
+def get_structure_list(structure_key=''):
+
+    if (structure_key==''):
+        structure_key='CSQ-ST0001'
+        # Patch for dynamic top
+        structure_data = frappe.db.get_value('Structure CSQ', {'title': 'Start'}, ['name'], as_dict=1)
+
+        structure_key = structure_data["name"]
+
     structure_list=frappe.db.get_list('Structure CSQ',
                                       filters={
                                           'parent_structure_csq':structure_key
@@ -23,7 +31,7 @@ def get_structure_list(structure_key='CSQ-ST0001'):
                                                 order_by='display_order')
             structure_list[x]["children_list"]=childrenList
         x=x=1
-
+    print(structure_list)
     return structure_list
 
 @frappe.whitelist()

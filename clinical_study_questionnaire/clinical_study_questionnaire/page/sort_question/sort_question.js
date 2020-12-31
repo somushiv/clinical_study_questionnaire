@@ -6,7 +6,7 @@ frappe.pages['sort-question'].on_page_load = function(wrapper) {
 	});
 	 let page_content = $(wrapper).find('.layout-main-section-wrapper');
 	 page_content.append(frappe.render_template("csq_list"));
-	generate_data(page);
+	 generate_data(page);
 page.add_action_icon(__("fa fa-home"), function() {
 
 		frappe.set_route('#modules/Clinical Study Questionnaire');
@@ -21,6 +21,7 @@ async function generate_data(page){
         dataType: "json",
         callback: function (r) {
             if (r.message) {
+                console.log(r.message)
 
                  let structure_template=frappe.render_template("strucutre_list",
 				structure_data=r.message);
