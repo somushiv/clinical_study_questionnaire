@@ -216,6 +216,14 @@ def interaction_module():
     return structure_object
 
 
+def get_starting_id():
+    #Patch for dynamic top
+    structure_data = frappe.db.get_value('Structure CSQ', {'title' : 'Start'}, ['name'], as_dict=1)
+
+    n_lavel = structure_data["name"]
+    return n_lavel
+
+
 @frappe.whitelist()
 def questions():
     l_object = json.loads(frappe.request.data)
@@ -230,7 +238,9 @@ def questions():
         question_mode=2
         returnObject = {'question_mode': question_mode, 'interaction_questions': return_questions}
     else:
-        return_questions = get_structure('CSQ-ST0001', 1, {'h1': '', 'h2': '', 'h3': ''}, [])
+        
+        starting_code=get_starting_id()
+        return_questions = get_structure(starting_code, 1, {'h1': '', 'h2': '', 'h3': ''}, [])
         returnObject = {'question_mode': question_mode, 'questions': return_questions}
     # print(return_questions)
 
