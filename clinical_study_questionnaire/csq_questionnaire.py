@@ -28,8 +28,9 @@ def study_design():
 
     # Validate logged in Particpant status
     response_satus = validate_response_stage(particpant_id)
-    print(response_satus)
+     
     if response_satus >= 0:
+        
         x = 0
         for q_row in q_object:
             menu_object = {"status": 0, 'response_stage': 0}
@@ -41,12 +42,12 @@ def study_design():
             q_object[x].update(menu_object)
             x = x + 1
 
-    if (particpant_object['assinged_program']=='CSQ0003'):
-        q_object[1]['status']=1
-        del q_object[0]
-        del q_object[1]
-        q_object[0]["response_stage"]=2
-        print(q_object)
+        if (particpant_object['assinged_program']=='CSQ0003'):
+            q_object[1]['status']=1
+            del q_object[0]
+            del q_object[1]
+            q_object[0]["response_stage"]=2
+            print(q_object)
 
 
     else:
