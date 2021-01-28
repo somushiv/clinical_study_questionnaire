@@ -81,7 +81,7 @@ def validate_response_stage(participant_id='NS00002'):
         return -1
 
 
-def get_csq_questions(var_section_name='', title_dist=''):
+def get_csq_questions(var_section_name='', title_dist='',user_description=''):
     # q_object = frappe.db.get_list('Question CSQ',{'section_name':['IN','CSQ-ST0003','CSQ-ST0002']},
     # ['section_title','name','question',  'upload_image'])
     # q_object = frappe.db.sql(
@@ -92,7 +92,7 @@ def get_csq_questions(var_section_name='', title_dist=''):
                                       'section_name': var_section_name
                                   },
                                   fields=['name', 'section_title', 'question',
-                                          'upload_image', 'upload_video'],
+                                          'upload_image', 'upload_video','question_type'],
                                   order_by='display_order',
                                   )
 
@@ -121,6 +121,7 @@ def get_csq_questions(var_section_name='', title_dist=''):
 
         answer_object = {"answer": a_object}
 
+        q_object[x].user_description=user_description
         q_object[x].update(answer_object)
 
         # update Title
@@ -253,7 +254,7 @@ def get_structure(var_name, title_counter, title_dist, question_list):
                                           filters={
                                               'parent_structure_csq': var_name
                                           },
-                                          fields=['name', 'title', 'display_order', 'parent_structure_csq'],
+                                          fields=['name', 'title', 'display_order', 'parent_structure_csq','description'],
                                           order_by='display_order',
                                           )
 
@@ -270,7 +271,7 @@ def get_structure(var_name, title_counter, title_dist, question_list):
         else:
             pass
         # print('***** title *****', title_dist)
-        question_return = get_csq_questions(s_row['name'], title_dist)
+        question_return = get_csq_questions(s_row['name'], title_dist,s_row['description'])
         if type(question_return) is list:
             for q_return_row in question_return:
                 question_list.append(q_return_row)
