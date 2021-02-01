@@ -92,15 +92,18 @@ def get_csq_questions(var_section_name='', title_dist='',user_description=''):
                                       'section_name': var_section_name
                                   },
                                   fields=['name', 'section_title', 'question',
-                                          'upload_image', 'upload_video','question_type'],
+                                          'upload_image', 'upload_video','question_type','section_name'],
                                   order_by='display_order',
                                   )
 
     x = 0
-
+    
     for q_row in q_object:
         # -- Get Answers --
         q_row = validate_none(q_row)
+        title_object1=generate_header(q_row['section_name'],[])
+        
+
         a_object = frappe.db.get_list('Answers CSQ', {'parent': q_row['name']}, ['answer_text', 'score', 'branch_question', 'text_input'])
 
         xy=0
@@ -108,10 +111,10 @@ def get_csq_questions(var_section_name='', title_dist='',user_description=''):
 
             if a_obj['branch_question'] is None:
 
-                a_object[xy]['branch_question']="0";
+                a_object[xy]['branch_question']="0"
 
             if a_obj['text_input'] is None:
-                a_object[xy]['text_input'] = 0;
+                a_object[xy]['text_input'] = 0
             elif a_obj['text_input'] == 'No':
                 a_object[xy]['text_input'] = 0
             elif a_obj['text_input'] == 'Yes':
@@ -125,7 +128,8 @@ def get_csq_questions(var_section_name='', title_dist='',user_description=''):
         q_object[x].update(answer_object)
 
         # update Title
-        q_object[x].update({'page_titles': title_dist})
+       
+        q_object[x].update({'page_titles': title_object1})
 
         x += 1
 
@@ -248,6 +252,25 @@ def questions():
 
     return returnObject
 
+def generate_header(structure_id='CSQ-ST0015',header_list=[]):
+   
+    structure_data = frappe.db.get_value('Structure CSQ', {'title' : 'Start'}, ['name'], as_dict=1)
+
+    n_lavel = structure_data["name"]
+    structure_object = frappe.db.get_value('Structure CSQ',{'name': structure_id},['name', 'title', 'display_order', 'parent_structure_csq'],as_dict=1)
+      
+    if n_lavel!=structure_object['parent_structure_csq']:
+        print("not empty")
+        
+        header_list=generate_header(structure_object['parent_structure_csq'],header_list)       
+    
+    header_list.append(structure_object['title'])    
+    # print(header_list)
+    return header_list
+        
+
+                    
+
 
 def get_structure(var_name, title_counter, title_dist, question_list):
     structure_object = frappe.db.get_list('Structure CSQ',
@@ -258,6 +281,10 @@ def get_structure(var_name, title_counter, title_dist, question_list):
                                           order_by='display_order',
                                           )
 
+    siblings = validate_siblings(var_name)
+    if title_counter == 1:
+        title_dist = {'h1': '', 'h2': '', 'h3': ''}
+
     for s_row in structure_object:
         # print(s_row)
         siblings = validate_siblings(s_row['name'])
@@ -267,10 +294,12 @@ def get_structure(var_name, title_counter, title_dist, question_list):
         title_dist['h' + str(title_counter)] = s_row['title']
         # print(title_dist)
         if siblings:
+            print("**********","Hello there")
             get_structure(s_row['name'], title_counter + 1, title_dist, question_list)
         else:
             pass
         # print('***** title *****', title_dist)
+       
         question_return = get_csq_questions(s_row['name'], title_dist,s_row['description'])
         if type(question_return) is list:
             for q_return_row in question_return:
