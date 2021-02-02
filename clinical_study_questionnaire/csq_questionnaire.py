@@ -92,7 +92,7 @@ def get_csq_questions(var_section_name='', title_dist='',user_description=''):
                                       'section_name': var_section_name
                                   },
                                   fields=['name', 'section_title', 'question',
-                                          'upload_image', 'upload_video','question_type','section_name'],
+                                          'upload_image', 'upload_video','question_type','section_name','question_code'],
                                   order_by='display_order',
                                   )
 
@@ -126,7 +126,7 @@ def get_csq_questions(var_section_name='', title_dist='',user_description=''):
         if not a_object:
             a_object.append({"answer_text": "","score": "","branch_question": "","text_input": 0})
         answer_object = {"answer": a_object}
-
+        q_object[x]['question']=q_object[x]['question_code']+". "+q_object[x]['question']
         q_object[x].user_description=user_description
         q_object[x].update(answer_object)
 
