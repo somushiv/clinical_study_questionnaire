@@ -122,6 +122,9 @@ def get_csq_questions(var_section_name='', title_dist='',user_description=''):
             xy=xy+1
 
 
+        # print("============",a_object)
+        if not a_object:
+            a_object.append({"answer_text": "","score": "","branch_question": "","text_input": 0})
         answer_object = {"answer": a_object}
 
         q_object[x].user_description=user_description
